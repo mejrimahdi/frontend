@@ -8,7 +8,7 @@ export const verifyAdmin = () => async (dispatch) => {
         const config = {
             headers: { authorization: localStorage.getItem('token') }
         };
-        const response = await axios.post("http://localhost:8000/api/user/current", config);
+        const response = await axios.post("https://backend-v4un.onrender.com/api/user/current", config);
         
         // Vérifiez le rôle de l'utilisateur dans la réponse
         if (response.data.role === "admin") {
@@ -33,7 +33,7 @@ export const verifyAdmin = () => async (dispatch) => {
 export const loginUser=(email,password)=>async(dispatch)=>{
     dispatch({type:LOAD_USER})
     try {
-        const response= await axios.post('http://localhost:8000/api/user/login',{email,password})
+        const response= await axios.post('https://backend-v4un.onrender.com/api/user/login',{email,password})
         dispatch({
             type:LOGIN_USER,
             payload:response.data
@@ -63,7 +63,7 @@ export const logoutUser=()=>async(dispatch)=>{
 export const registerUser=(newUser)=>async(dispatch)=>{
     dispatch({type:LOAD_USER})
     try {
-        const response=await axios.post('http://localhost:8000/api/user/register',newUser)
+        const response=await axios.post('https://backend-v4un.onrender.com/api/user/register',newUser)
         dispatch({
             type:REGISTER_USER,
             payload:response.data
@@ -80,7 +80,7 @@ export const registerUser=(newUser)=>async(dispatch)=>{
 export const deleteUser=(_id)=>async(dispatch)=>{
     dispatch({type:LOAD_USER})
     try {
-        const response= await axios.delete(`http://localhost:8000/api/user/delete/${_id}`)
+        const response= await axios.delete(`https://backend-v4un.onrender.com/api/user/delete/${_id}`)
         dispatch({
             type:DELETE_USER,
             payload:response.data
@@ -96,7 +96,7 @@ export const deleteUser=(_id)=>async(dispatch)=>{
 export const resetPasswordUser=(_id,newPassword)=>async(dispatch)=>{
     dispatch({type:LOAD_USER})
     try {
-        const response=await axios.put(`http://localhost:8000/api/user/resetPassword/${_id}`,{newPassword})
+        const response=await axios.put(`https://backend-v4un.onrender.com/api/user/resetPassword/${_id}`,{newPassword})
         dispatch({
             type:RESET_PASSWORD,
             payload:response.data
@@ -115,7 +115,7 @@ export const current=()=>async(dispatch)=>{
         const config = {
             headers: {authorization: localStorage.getItem('token')}
         }
-        const response=await axios.post("http://localhost:8000/api/user/current",config)
+        const response=await axios.post("https://backend-v4un.onrender.com/api/user/current",config)
         dispatch({
             type:CURRENT_USER,
             payload:response.data
@@ -131,7 +131,7 @@ export const current=()=>async(dispatch)=>{
 export const updateUserRole = (userId, newRole) => async (dispatch) => {
     dispatch({ type: LOAD_USER });
     try {
-        const response = await axios.put(`http://localhost:8000/api/user/updateRole/${userId}`, { role: newRole });
+        const response = await axios.put(`https://backend-v4un.onrender.com/api/user/updateRole/${userId}`, { role: newRole });
         dispatch({
             type: UPDATE_USER_ROLE,
             payload: response.data,

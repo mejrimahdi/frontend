@@ -6,7 +6,7 @@ import { ADD_PRODUCT,UPDATE_CART, ADD_TO_CART, DELETE_PRODUCT, ERROR_PRODUCT, GE
 export const addProduct = (newProduct) => async (dispatch) => {
     dispatch({ type: LOAD_PRODUCT });
     try {
-        const response = await axios.post("http://localhost:8000/api/product/addProduct", newProduct);
+        const response = await axios.post("https://backend-v4un.onrender.com/api/product/addProduct", newProduct);
         dispatch({
             type: ADD_PRODUCT,
             payload: response.data,
@@ -24,7 +24,7 @@ export const addProduct = (newProduct) => async (dispatch) => {
 export const updateProduct=(id,newPrice)=>async(dispatch)=>{
     dispatch({type:LOAD_PRODUCT});
     try{
-        const response = await axios.put(`http://localhost:8000/api/product/updateProduct/${id}`,newPrice);
+        const response = await axios.put(`https://backend-v4un.onrender.com/api/product/updateProduct/${id}`,newPrice);
         dispatch({
             type:UPDATE_PRODUCT,
             payload:response.data
@@ -40,7 +40,7 @@ export const updateProduct=(id,newPrice)=>async(dispatch)=>{
 export const deleteProduct=(id)=>async(dispatch)=>{
     dispatch({type:LOAD_PRODUCT});
     try{
-        const response = await axios.delete(`http://localhost:8000/api/product/deleteProduct/${id}`);
+        const response = await axios.delete(`https://backend-v4un.onrender.com/api/product/deleteProduct/${id}`);
         dispatch({
             type:DELETE_PRODUCT,
             payload:response.data
@@ -57,7 +57,7 @@ export const deleteProduct=(id)=>async(dispatch)=>{
 export const getProductById=(id)=>async(dispatch)=>{
     dispatch({type:LOAD_PRODUCT});
     try{
-        const response = await axios.get(`http://localhost:8000/api/product/getProduct/${id}`);
+        const response = await axios.get(`https://backend-v4un.onrender.com/api/product/getProduct/${id}`);
         dispatch({
             type:GET_PRODUCT_BY_ID,
             payload:response.data
@@ -73,7 +73,7 @@ export const getProductById=(id)=>async(dispatch)=>{
 export const getProducts=(id)=>async(dispatch)=>{
     dispatch({type:LOAD_PRODUCT});
     try{
-        const response = await axios.get("http://localhost:8000/api/product/getProducts");
+        const response = await axios.get("https://backend-v4un.onrender.com/api/product/getProducts");
         dispatch({
             type:GET_PRODUCTS,
             payload:response.data

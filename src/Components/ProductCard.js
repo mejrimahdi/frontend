@@ -23,7 +23,7 @@ function ProductCard(props) {
     const handleUpdate = async () => {
         if (newPrice && newPrice !== props.product.price) {
             try {
-                await axios.put(`http://localhost:8000/api/product/updateProduct/${props.product._id}`, { price: newPrice });
+                await axios.put(`https://backend-v4un.onrender.com/api/product/updateProduct/${props.product._id}`, { price: newPrice });
                 dispatch(updateProduct(props.product._id, { price: newPrice }));
                 handleClose();
             } catch (error) {
