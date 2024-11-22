@@ -1,0 +1,64 @@
+@keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes bounceEffect {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+  
+  h1.animate-title {
+    animation: fadeInUp 1s ease-out, bounceEffect 2s ease-in-out infinite;
+  }
+  
+  p.animate-subtitle {
+    animation: fadeInUp 1.5s ease-out;
+  }
+  @keyframes clickEffect {
+    0% {
+      transform: scale(1);
+      color: #0066b2;
+    }
+    50% {
+      transform: scale(0.9);
+      color: #003d99; /* Couleur légèrement plus foncée pendant l'effet */
+    }
+    100% {
+      transform: scale(1);
+      color: #0066b2;
+    }
+  }
+  
+  span.animate-click {
+    display: inline-block; /* Nécessaire pour que l'animation scale fonctionne correctement */
+    animation: clickEffect 0.5s ease-in-out infinite;
+  }
+  
+  /* Assurer la taille uniforme des images dans le carousel */
+.carousel-item img {
+    width: 100%;
+    height: 500px; /* Hauteur uniforme */
+    object-fit: cover; /* Ajuste l'image sans la déformer */
+    transition: opacity 1s ease-in-out; /* Transition fluide */
+  }
+  
+  /* Style du titre et du sous-titre pour plus de clarté */
+  .animate-title {
+    transition: transform 1s ease-in-out;
+  }
+  
+  .animate-subtitle {
+    transition: transform 1s ease-in-out;
+  }
+  
